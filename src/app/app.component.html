@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">
+        <mat-icon>phone</mat-icon>
+        <span>Contact</span>
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon>notifications</mat-icon>
+        <span>Notifications</span>
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon>category</mat-icon>
+        <span>Categories</span>
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon>highlight</mat-icon>
+        <span>Highlight</span>
+      </a>
+      <a mat-list-item href="#">
+        <button mat-stroked-button color="accent" (click)="signOut()" >Sign Out</button>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Finder</span>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+
+    <section>
+
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" routerLinkActive="active" (click)="openDialog()">Post Lost Item</button>
+      </div>
+      
+    </section>    
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

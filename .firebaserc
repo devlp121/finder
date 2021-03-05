@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "test-2862c": {
+      "hosting": {
+        "lstfound": [
+          "test-2862c"
+        ]
+      }
+    }
+  }
+}
